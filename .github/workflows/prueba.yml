@@ -20,3 +20,12 @@ jobs:
       - name: Construir app con node
         run: npm install
   
+      - name: Verificar si app.js existe
+        run: |
+            if [ -f "app.js" ]; then
+              echo "El archivo app.js existe."
+            else
+              echo "El archivo app.js no existe."
+              exit 1
+            fi
+            echo "Archivo app.js verificado correctamente."
