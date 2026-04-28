@@ -1,0 +1,33 @@
+name: Pipeline para revisar el archivo  
+
+on: 
+  push: 
+    branches: ["master"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps: 
+      - name: Checkout del codigo 
+        uses: actions/checkout@v4
+
+      - name: Usar NODE JS
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Construir app con node
+        run: |
+          cd APITALLER
+          npm install
+  
+      - name: Verificar si app.js existe
+        run: |
+            if [ -f "app.js" ]; then
+              echo "El archivo app.js existe."
+            else
+              echo "El archivo app.js no existe."
+              exit 1
+            fi
+            echo "Archivo app.js verificado correctamente."
