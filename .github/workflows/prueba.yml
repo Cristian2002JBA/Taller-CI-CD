@@ -24,10 +24,18 @@ jobs:
   
       - name: Verificar si app.js existe
         run: |
+<<<<<<< HEAD
             if [ -f "app.js" ]; then
+=======
+            if [ ! -f "$GITHUB_WORKSPACE/APITALLER/app.js" ]; then
+>>>>>>> 2aec546d00973a602f0ea399511cd3cdc82d0346
               echo "El archivo app.js existe."
             else
               echo "El archivo app.js no existe."
               exit 1
             fi
+<<<<<<< HEAD
             echo "Archivo app.js verificado correctamente."
+=======
+            echo "Archivo app.js verificado correctamente."
+>>>>>>> 2aec546d00973a602f0ea399511cd3cdc82d0346
